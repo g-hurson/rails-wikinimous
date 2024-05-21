@@ -1,0 +1,24 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <p><%= link_to "Wikinimous", articles_path, class: "navbar-brand" %></p>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="true" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="navbar-collapse collapse show" id="navbarSupportedContent" style="">
+    <ul class="navbar-nav ml-auto">
+      <li>
+        <%= link_to "New Article", new_article_path, class: "btn btn-primary" %>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<h1>New article</h1>
+<%= form_with model: @article do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+  <%= f.label :content %>
+  <%= f.text_field :content %>
+  <%= f.submit %>
+<% end %>
+<p><%= link_to "Back", articles_path %></p>

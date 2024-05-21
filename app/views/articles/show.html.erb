@@ -1,0 +1,32 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <p><%= link_to "Wikinimous", articles_path, class: "navbar-brand" %></p>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="navbar-collapse collapse show" id="navbarSupportedContent">
+    <ul class="navbar-nav ml-auto">
+      <li>
+        <%= link_to "New Article", new_article_path, class: "btn btn-primary" %>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container mt-3">
+  <div class="row">
+    <div class="col-sm-8 offset-sm-2">
+      <h2>
+        <%= @article.title %>
+        <%= link_to "", edit_article_path, class: "fa fa-pencil  text-decoration-none" %>
+        <%= link_to "",
+          article_path(@article),
+          class: "fa-solid fa-trash text-decoration-none",
+          data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+        %>
+      </h2>
+      <hr>
+      <p><%= @article.content %></p>
+    </div>
+  </div>
+</div>
